@@ -234,48 +234,48 @@
       position: relative;
     }
 
-    .hero-upload-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
+    /* CARRUSEL HERO */
+    .hero-carousel {
+      position: relative;
       width: 100%;
       height: 100%;
-      cursor: pointer;
-      color: rgba(139,38,53,0.35);
+      overflow: hidden;
     }
 
-    .hero-upload-label svg { opacity: 0.4; }
-
-    .hero-upload-label span {
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-    }
-
-    .upload-cta {
-      background: rgba(139,38,53,0.1);
-      border: 1px solid rgba(139,38,53,0.2);
-      color: var(--burgundy);
-      padding: 0.6rem 1.4rem;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .upload-cta:hover { background: rgba(139,38,53,0.18); }
-
-    .hero-upload-label input { display: none; }
-
-    .hero-img {
+    .hero-carousel-slide {
       position: absolute;
       inset: 0;
-      width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .hero-carousel-slide.active { opacity: 1; }
+
+    .hero-carousel-slide img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 1.2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 2;
+    }
+
+    .carousel-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(253,248,242,0.5);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s;
+    }
+    .carousel-dot.active { background: var(--white); }
 
     /* SOBRE MI */
     #sobre-mi {
@@ -686,15 +686,17 @@
       <p class="hero-scroll">desplazá para explorar</p>
     </div>
     <div class="hero-right">
-      <div class="hero-photo-wrap" id="heroWrap">
-        <label class="hero-upload-label" id="heroLabel">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-            <rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/>
-          </svg>
-          <span>Tu foto</span>
-          <button class="upload-cta" type="button" onclick="this.closest('label').querySelector('input').click()">Subir imagen</button>
-          <input type="file" accept="image/*" onchange="heroUpload(event)" />
-        </label>
+      <div class="hero-carousel" id="heroCarousel">
+        <div class="hero-carousel-slide active"><img src="images/WhatsApp Image 2026-06-09 at 00.25.13.jpeg" alt="Candela Merás" /></div>
+        <div class="hero-carousel-slide"><img src="images/WhatsApp Image 2026-06-09 at 00.25.13 (1).jpeg" alt="Candela Merás" /></div>
+        <div class="hero-carousel-slide"><img src="images/WhatsApp Image 2026-06-09 at 00.25.13 (2).jpeg" alt="Candela Merás" /></div>
+        <div class="hero-carousel-slide"><img src="images/WhatsApp Image 2026-06-09 at 00.25.13 (3).jpeg" alt="Candela Merás" /></div>
+        <div class="carousel-dots">
+          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
+          <button class="carousel-dot" onclick="goToSlide(1)"></button>
+          <button class="carousel-dot" onclick="goToSlide(2)"></button>
+          <button class="carousel-dot" onclick="goToSlide(3)"></button>
+        </div>
       </div>
     </div>
   </section>
@@ -1024,19 +1026,20 @@
       ring.style.top = e.clientY + 'px';
     });
 
-    // Hero image upload
-    function heroUpload(e) {
-      const file = e.target.files[0];
-      if (!file) return;
-      const url = URL.createObjectURL(file);
-      const wrap = document.getElementById('heroWrap');
-      const label = document.getElementById('heroLabel');
-      label.style.display = 'none';
-      const img = document.createElement('img');
-      img.src = url;
-      img.className = 'hero-img';
-      wrap.appendChild(img);
+    // Hero carousel
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.hero-carousel-slide');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    function goToSlide(n) {
+      slides[currentSlide].classList.remove('active');
+      dots[currentSlide].classList.remove('active');
+      currentSlide = n;
+      slides[currentSlide].classList.add('active');
+      dots[currentSlide].classList.add('active');
     }
+
+    setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
 
     // Slot image upload
     function triggerSlot(slot) {
