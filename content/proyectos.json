@@ -192,6 +192,23 @@
             "/images/estilismo/editorial-maries-dollhouse/editorial-3.webp",
             "/images/estilismo/editorial-maries-dollhouse/editorial-4.webp"
           ]
+        },
+        {
+          "titulo": "Sesiones de Meiri Doll",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/subidas/265657.webp",
+            "/images/subidas/265764.webp",
+            "/images/subidas/265813.webp",
+            "/images/subidas/271176.webp",
+            "/images/subidas/271187.webp",
+            "/images/subidas/216445.webp",
+            "/images/subidas/215066.webp",
+            "/images/subidas/215065.webp",
+            "/images/subidas/215063.webp",
+            "/images/subidas/215062.webp"
+          ]
         }
       ]
     },
