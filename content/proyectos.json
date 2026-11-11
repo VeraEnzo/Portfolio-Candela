@@ -46,39 +46,6 @@
       ]
     },
     {
-      "titulo": "Colección de lencería",
-      "etiqueta": "Colección · Facultad",
-      "descripcion": "Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Figurines, fichas y prendas finales.",
-      "visible": false,
-      "destacado": false,
-      "secciones": [
-        {
-          "titulo": "Inspiración",
-          "columnas": "3",
-          "formato": "horizontal",
-          "fotos": []
-        },
-        {
-          "titulo": "Figurines",
-          "columnas": "4",
-          "formato": "vertical",
-          "fotos": []
-        },
-        {
-          "titulo": "Fichas técnicas",
-          "columnas": "3",
-          "formato": "horizontal",
-          "fotos": []
-        },
-        {
-          "titulo": "Prendas finales",
-          "columnas": "2",
-          "formato": "vertical",
-          "fotos": []
-        }
-      ]
-    },
-    {
       "titulo": "Meiri Doll",
       "etiqueta": "Marca propia · Identidad & Colección",
       "descripcion": "Mi marca de indumentaria femenina. Desde el naming y la identidad visual hasta cada prenda: diseño, moldería y contenido pensado en conjunto.",
@@ -121,6 +88,63 @@
           "titulo": "Branding",
           "columnas": "3",
           "formato": "cuadrado",
+          "fotos": []
+        }
+      ]
+    },
+    {
+      "titulo": "Producción de moda",
+      "etiqueta": "Vestisora en Desfiles",
+      "descripcion": "Coordinación integral de backstage, fittings y cambios rápidos de vestuario para garantizar la fluidez de las pasarelas.",
+      "visible": false,
+      "destacado": true,
+      "secciones": [
+        {
+          "titulo": "Desfiles",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/subidas/201253.webp",
+            "/images/subidas/16326.webp",
+            "/images/subidas/14301.webp",
+            "/images/subidas/294849.webp",
+            "/images/subidas/94905.webp",
+            "/images/subidas/267768.webp",
+            "/images/subidas/267770.webp",
+            "/images/subidas/267729.webp"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Colección de lencería",
+      "etiqueta": "Colección · Facultad",
+      "descripcion": "Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Figurines, fichas y prendas finales.",
+      "visible": false,
+      "destacado": false,
+      "secciones": [
+        {
+          "titulo": "Inspiración",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Figurines",
+          "columnas": "4",
+          "formato": "vertical",
+          "fotos": []
+        },
+        {
+          "titulo": "Fichas técnicas",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Prendas finales",
+          "columnas": "2",
+          "formato": "vertical",
           "fotos": []
         }
       ]
@@ -183,30 +207,6 @@
             "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-masculino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-falda-pantalon.webp"
-          ]
-        }
-      ]
-    },
-    {
-      "titulo": "Producción de moda",
-      "etiqueta": "Vestisora en Desfiles",
-      "descripcion": "Coordinación integral de backstage, fittings y cambios rápidos de vestuario para garantizar la fluidez de las pasarelas.",
-      "visible": true,
-      "destacado": true,
-      "secciones": [
-        {
-          "titulo": "Desfiles",
-          "columnas": "3",
-          "formato": "vertical",
-          "fotos": [
-            "/images/subidas/201253.webp",
-            "/images/subidas/16326.webp",
-            "/images/subidas/14301.webp",
-            "/images/subidas/294849.webp",
-            "/images/subidas/94905.webp",
-            "/images/subidas/267768.webp",
-            "/images/subidas/267770.webp",
-            "/images/subidas/267729.webp"
           ]
         }
       ]
