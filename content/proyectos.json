@@ -139,7 +139,7 @@
         {
           "titulo": "Inspiración",
           "columnas": "3",
-          "formato": "horizontal",
+          "formato": "vertical",
           "fotos": [
             "/images/subidas/333033.webp",
             "/images/subidas/333034.webp"
