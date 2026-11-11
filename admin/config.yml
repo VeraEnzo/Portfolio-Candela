@@ -1,5 +1,5 @@
 # Configuración de Sveltia CMS — https://sveltiacms.app/en/docs
-# Candela entra en https://veraenzo.github.io/Portfolio-Candela/admin/ con su cuenta de GitHub.
+# Candela entra en https://candelameras.vercel.app/admin/ con su cuenta de GitHub.
 
 backend:
   name: github
@@ -15,8 +15,8 @@ backend:
     uploadMedia: "Sube “{{path}}”"
     deleteMedia: "Borra “{{path}}”"
 
-site_url: https://veraenzo.github.io/Portfolio-Candela/
-display_url: https://veraenzo.github.io/Portfolio-Candela/
+site_url: https://candelameras.vercel.app/
+display_url: https://candelameras.vercel.app/
 
 # Fotos nuevas: se guardan en /images/subidas
 media_folder: images/subidas

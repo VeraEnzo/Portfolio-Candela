@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static single-page portfolio for Candela Merás, an Argentine fashion designer (brand: Meiri Doll). No build system, no package manager, no backend. Hosted on GitHub Pages (`https://veraenzo.github.io/Portfolio-Candela/`, i.e. served from a **subpath** — keep all asset URLs relative). The owner edits content from her phone via Sveltia CMS at `/admin/`.
+Static single-page portfolio for Candela Merás, an Argentine fashion designer (brand: Meiri Doll). No build system, no package manager, no backend. Hosted on Vercel (`https://candelameras.vercel.app/`, static, no build; `vercel.json` redirects `/admin` → `/admin/` so Sveltia finds `config.yml`). Keep asset URLs relative. The owner edits content from her phone via Sveltia CMS at `/admin/`.
 
 ## Running Locally
 
@@ -22,7 +22,7 @@ npx http-server
 - `content/general.json` — hero (`portada`, incl. carousel `fotos`), `sobre_mi`, `proyectos_intro`, `contacto`. Elements with `data-bind="a.b"` get `textContent` from that path.
 - `content/proyectos.json` — `{ proyectos: [{ titulo, etiqueta, descripcion, visible, destacado, secciones: [{ titulo, columnas: "1".."4", formato: vertical|horizontal|cuadrado|panoramico, fotos: [path] }] }] }`. Projects with `visible: false` and sections with no photos are not rendered.
 - `admin/index.html` + `admin/config.yml` — Sveltia CMS. **Any change to the JSON shape must be mirrored in `config.yml`** (and vice versa). Auth goes through a sveltia-cms-auth Cloudflare Worker (`backend.base_url`).
-- `images/` — WebP only (CMS converts uploads to WebP ≤2048px). CMS uploads land in `images/subidas/`. Paths in JSON start with `/images/...`; the renderer strips the leading slash so they resolve under the GitHub Pages subpath.
+- `images/` — WebP only (CMS converts uploads to WebP ≤2048px). CMS uploads land in `images/subidas/`. Paths in JSON start with `/images/...`; the renderer strips the leading slash so they resolve relative to the page.
 - SEO/Open Graph tags are static in `<head>` (crawlers don't run JS); `images/og-image.jpg` is the 1200×630 share image.
 
 ### Sections

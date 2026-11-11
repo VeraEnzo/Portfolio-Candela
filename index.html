@@ -12,8 +12,8 @@
   <meta property="og:locale" content="es_AR" />
   <meta property="og:title" content="Candela Merás — Diseñadora de Indumentaria" />
   <meta property="og:description" content="Colecciones, moldería, estilismo y marca propia. Creadora de Meiri Doll." />
-  <meta property="og:url" content="https://veraenzo.github.io/Portfolio-Candela/" />
-  <meta property="og:image" content="https://veraenzo.github.io/Portfolio-Candela/images/og-image.jpg" />
+  <meta property="og:url" content="https://candelameras.vercel.app/" />
+  <meta property="og:image" content="https://candelameras.vercel.app/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -819,7 +819,7 @@
   <script>
     // ---------- Utilidades ----------
     const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    // Las rutas del CMS empiezan con "/"; se vuelven relativas para que funcione en un subdirectorio (GitHub Pages)
+    // Las rutas del CMS empiezan con "/"; se vuelven relativas para que el sitio funcione en cualquier ruta
     const src = p => esc(String(p || '').replace(/^\/+/, ''));
     const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
     // Texto con párrafos (línea en blanco) y *énfasis* en letra caligráfica
