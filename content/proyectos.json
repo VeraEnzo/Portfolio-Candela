@@ -7,12 +7,42 @@
       "visible": false,
       "destacado": false,
       "secciones": [
-        { "titulo": "Concepto / Moodboard", "columnas": "3", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Paleta", "columnas": "2", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Figurines", "columnas": "4", "formato": "vertical", "fotos": [] },
-        { "titulo": "Fichas técnicas", "columnas": "3", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Prendas terminadas", "columnas": "2", "formato": "vertical", "fotos": [] },
-        { "titulo": "Producción y desfile", "columnas": "3", "formato": "horizontal", "fotos": [] }
+        {
+          "titulo": "Concepto / Moodboard",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Paleta",
+          "columnas": "2",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Figurines",
+          "columnas": "4",
+          "formato": "vertical",
+          "fotos": []
+        },
+        {
+          "titulo": "Fichas técnicas",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Prendas terminadas",
+          "columnas": "2",
+          "formato": "vertical",
+          "fotos": []
+        },
+        {
+          "titulo": "Producción y desfile",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        }
       ]
     },
     {
@@ -22,10 +52,30 @@
       "visible": false,
       "destacado": false,
       "secciones": [
-        { "titulo": "Inspiración", "columnas": "3", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Figurines", "columnas": "4", "formato": "vertical", "fotos": [] },
-        { "titulo": "Fichas técnicas", "columnas": "3", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Prendas finales", "columnas": "2", "formato": "vertical", "fotos": [] }
+        {
+          "titulo": "Inspiración",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Figurines",
+          "columnas": "4",
+          "formato": "vertical",
+          "fotos": []
+        },
+        {
+          "titulo": "Fichas técnicas",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Prendas finales",
+          "columnas": "2",
+          "formato": "vertical",
+          "fotos": []
+        }
       ]
     },
     {
@@ -35,12 +85,44 @@
       "visible": true,
       "destacado": true,
       "secciones": [
-        { "titulo": "Concepto", "columnas": "2", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Diseño de productos", "columnas": "3", "formato": "vertical", "fotos": ["/images/meiri-doll/figurines-1.webp"] },
-        { "titulo": "Hoodies", "columnas": "4", "formato": "vertical", "fotos": [] },
-        { "titulo": "Contenido redes", "columnas": "3", "formato": "cuadrado", "fotos": [] },
-        { "titulo": "Proceso", "columnas": "3", "formato": "horizontal", "fotos": [] },
-        { "titulo": "Branding", "columnas": "3", "formato": "cuadrado", "fotos": [] }
+        {
+          "titulo": "Concepto",
+          "columnas": "2",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Diseño de productos",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/meiri-doll/figurines-1.webp"
+          ]
+        },
+        {
+          "titulo": "Hoodies",
+          "columnas": "4",
+          "formato": "vertical",
+          "fotos": []
+        },
+        {
+          "titulo": "Contenido redes",
+          "columnas": "3",
+          "formato": "cuadrado",
+          "fotos": []
+        },
+        {
+          "titulo": "Proceso",
+          "columnas": "3",
+          "formato": "horizontal",
+          "fotos": []
+        },
+        {
+          "titulo": "Branding",
+          "columnas": "3",
+          "formato": "cuadrado",
+          "fotos": []
+        }
       ]
     },
     {
@@ -101,6 +183,30 @@
             "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-masculino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-falda-pantalon.webp"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Producción de moda",
+      "etiqueta": "Vestisora en Desfiles",
+      "descripcion": "Coordinación integral de backstage, fittings y cambios rápidos de vestuario para garantizar la fluidez de las pasarelas.",
+      "visible": true,
+      "destacado": true,
+      "secciones": [
+        {
+          "titulo": "Desfiles",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/subidas/201253.webp",
+            "/images/subidas/16326.webp",
+            "/images/subidas/14301.webp",
+            "/images/subidas/294849.webp",
+            "/images/subidas/94905.webp",
+            "/images/subidas/267768.webp",
+            "/images/subidas/267770.webp",
+            "/images/subidas/267729.webp"
           ]
         }
       ]
