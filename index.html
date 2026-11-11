@@ -4,7 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Candela Merás — Diseñadora de Indumentaria</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Portfolio de Candela Merás, diseñadora de indumentaria argentina y creadora de Meiri Doll. Colecciones, moldería, estilismo y marca propia." />
+  <meta name="theme-color" content="#FDF8F2" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' x='50' text-anchor='middle' font-size='90' fill='%238B2635'%3E✦%3C/text%3E%3C/svg%3E" />
+  <!-- Vista previa al compartir el link (WhatsApp, Instagram, etc.). Si cambia el dominio, actualizar estas URLs. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:title" content="Candela Merás — Diseñadora de Indumentaria" />
+  <meta property="og:description" content="Colecciones, moldería, estilismo y marca propia. Creadora de Meiri Doll." />
+  <meta property="og:url" content="https://veraenzo.github.io/Portfolio-Candela/" />
+  <meta property="og:image" content="https://veraenzo.github.io/Portfolio-Candela/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400;1,600&family=Pinyon+Script&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --rose: #F2C4C0;
@@ -28,10 +43,12 @@
       font-family: 'Jost', sans-serif;
       font-weight: 300;
       overflow-x: hidden;
-      cursor: none;
     }
 
-    /* Cursor */
+    /* Cursor (solo con mouse; ver JS) */
+    body.custom-cursor, body.custom-cursor a, body.custom-cursor button { cursor: none; }
+    .cursor, .cursor-ring { display: none; }
+    body.custom-cursor .cursor, body.custom-cursor .cursor-ring { display: block; }
     .cursor {
       width: 8px; height: 8px;
       background: var(--burgundy);
@@ -440,6 +457,7 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--burgundy);
+      font-weight: 400;
       margin-bottom: 1.2rem;
       display: flex;
       align-items: center;
@@ -461,74 +479,45 @@
     .photo-grid.cols-2 { grid-template-columns: 1fr 1fr; }
     .photo-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
     .photo-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
-    .photo-grid.cols-2-tall .slot:first-child { grid-row: span 2; }
 
-    .slot {
+    .photo {
       aspect-ratio: 3/4;
       background: var(--rose-pale);
-      border: 1px dashed rgba(242,196,192,0.8);
       position: relative;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.3s, background 0.3s;
-      cursor: pointer;
+      padding: 0;
+      border: none;
+      cursor: zoom-in;
+      display: block;
+      width: 100%;
     }
-    .slot:hover {
-      border-color: var(--rose);
-      background: var(--rose-light);
-    }
-    .slot.landscape { aspect-ratio: 4/3; }
-    .slot.square { aspect-ratio: 1; }
-    .slot.wide { aspect-ratio: 16/7; }
+    .photo.horizontal { aspect-ratio: 4/3; }
+    .photo.cuadrado { aspect-ratio: 1; }
+    .photo.panoramico { aspect-ratio: 16/7; }
 
-    .slot-label {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-      width: 100%; height: 100%;
-      justify-content: center;
-    }
-    .slot-label input { display: none; }
-
-    .slot-icon { color: var(--rose); opacity: 0.5; }
-
-    .slot-text {
-      font-size: 0.58rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      text-align: center;
-      padding: 0 0.5rem;
-    }
-
-    .slot img {
+    .photo img {
       position: absolute;
       inset: 0; width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-    .slot:hover img { transform: scale(1.04); }
+    .photo:hover img { transform: scale(1.04); }
+    .photo:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 2px; }
 
-    .slot .remove-btn {
-      position: absolute;
-      top: 6px; right: 6px;
-      background: rgba(253,248,242,0.85);
-      border: none;
+    .script-em {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 1.4rem;
       color: var(--burgundy);
-      width: 22px; height: 22px;
-      border-radius: 50%;
-      font-size: 0.65rem;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2;
+      font-style: normal;
     }
-    .slot:has(img) .remove-btn { display: flex; }
+
+    .load-error {
+      text-align: center;
+      padding: 4rem 2rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--muted);
+    }
 
     .ornament-sep {
       text-align: center;
@@ -679,7 +668,32 @@
       transition: opacity 0.2s;
     }
     .lightbox-close:hover { opacity: 1; }
-    .slot.static { cursor: zoom-in; }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--rose-light);
+      font-size: 2.4rem;
+      padding: 1rem;
+      cursor: pointer;
+      opacity: 0.7;
+      line-height: 1;
+      transition: opacity 0.2s;
+    }
+    .lightbox-nav:hover { opacity: 1; }
+    .lightbox-nav[hidden] { display: none; }
+    .lightbox-prev { left: 0.5rem; }
+    .lightbox-next { right: 0.5rem; }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -699,17 +713,37 @@
       .photo-grid.cols-3 { grid-template-columns: 1fr 1fr; }
       .photo-grid.cols-4 { grid-template-columns: 1fr 1fr; }
       footer { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .project-section-block { padding: 1.4rem 1.2rem; }
+      .lightbox-nav { font-size: 2rem; padding: 0.6rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav { padding: 0.9rem 1rem; }
+      .nav-logo { font-size: 1.4rem; }
+      .nav-links { gap: 0.9rem; }
+      .nav-links a { font-size: 0.6rem; letter-spacing: 0.14em; }
+      .project-header { grid-template-columns: 1fr; }
+      .project-number { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      .project-block { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <!-- NAV -->
-  <nav>
-    <a href="#hero" class="nav-logo">Candela Merás</a>
+  <nav aria-label="Principal">
+    <a href="#hero" class="nav-logo" data-bind="portada.nombre">Candela Merás</a>
     <ul class="nav-links">
       <li><a href="#sobre-mi">Sobre mí</a></li>
       <li><a href="#proyectos">Proyectos</a></li>
@@ -717,436 +751,256 @@
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-left">
-      <p class="hero-eyebrow">Diseñadora de Indumentaria · Argentina</p>
-      <h1 class="hero-name">Candela<br>Merás</h1>
-      <p class="hero-subtitle">moda, moldería &amp; marca propia</p>
-      <div class="hero-divider"><span>✦</span></div>
-      <p class="hero-desc">Diseño con mirada propia: desde la moldería hasta la identidad de marca. Mi trabajo nace del detalle, la feminidad y lo genuinamente artesanal.</p>
-      <p class="hero-scroll">desplazá para explorar</p>
-    </div>
-    <div class="hero-right">
-      <div class="hero-carousel" id="heroCarousel">
-        <div class="hero-carousel-slide active"><img src="images/hero/figurines-marcadores.jpeg" alt="Candela Merás" /></div>
-        <div class="hero-carousel-slide"><img src="images/hero/proceso-moodboard-encajes.jpeg" alt="Candela Merás" /></div>
-        <div class="hero-carousel-slide"><img src="images/hero/molderia-tijera.jpeg" alt="Candela Merás" /></div>
-        <div class="hero-carousel-slide"><img src="images/hero/molderia-patrones.jpeg" alt="Candela Merás" /></div>
-        <div class="carousel-dots">
-          <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-          <button class="carousel-dot" onclick="goToSlide(1)"></button>
-          <button class="carousel-dot" onclick="goToSlide(2)"></button>
-          <button class="carousel-dot" onclick="goToSlide(3)"></button>
-        </div>
+  <main>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow" data-bind="portada.etiqueta"></p>
+        <h1 class="hero-name" id="heroName"></h1>
+        <p class="hero-subtitle" data-bind="portada.subtitulo"></p>
+        <div class="hero-divider" aria-hidden="true"><span>✦</span></div>
+        <p class="hero-desc" data-bind="portada.descripcion"></p>
+        <p class="hero-scroll">desplazá para explorar</p>
       </div>
-    </div>
-  </section>
-
-  <!-- SOBRE MÍ -->
-  <section id="sobre-mi">
-    <div class="about-ornament">
-      <span class="about-initial">C</span>
-      <p class="about-tagline">diseño con alma</p>
-    </div>
-    <div class="about-text">
-      <p class="section-label">Sobre mí</p>
-      <h2>Hola, soy Candela</h2>
-      <p>Soy Candela Merás, diseñadora de indumentaria formada en Argentina. Trabajo en el proceso completo: moldería, confección, identidad de marca y estrategia de contenido.</p>
-      <p>Mi estética nace de lo femenino, lo nostálgico y el detalle bien hecho. Trabajo con encajes, frisa, denim y rústico, buscando prendas que cuenten algo.</p>
-      <p>Fundé <em style="font-family:'Pinyon Script',cursive;font-size:1.4rem;color:var(--burgundy);font-style:normal">Meiri Doll</em>, mi propia marca de indumentaria femenina, donde el diseño y la identidad de marca conviven desde el primer boceto.</p>
-    </div>
-  </section>
-
-  <!-- PROYECTOS -->
-  <section id="proyectos">
-    <div class="proyectos-header">
-      <p class="section-label" style="justify-content:center">Trayectoria</p>
-      <h2>Mis proyectos</h2>
-      <p>un recorrido desde los primeros trabajos hasta hoy</p>
-    </div>
-
-    <!-- 1. MARIE'S DOLLHOUSE -->
-    <div class="project-block" id="pb1">
-      <div class="project-header">
-        <div class="project-number">✦</div>
-        <div class="project-meta">
-          <p class="project-tag">Colección de egreso · Facultad</p>
-          <h3 class="project-title">Marie's Dollhouse</h3>
-          <p class="project-desc">Colección final de grado inspirada en el universo de las muñecas vintage, la feminidad y lo onírico. Un trabajo integral de diseño, moldería y construcción.</p>
-        </div>
+      <div class="hero-right">
+        <div class="hero-carousel" id="heroCarousel" aria-roledescription="carrusel" aria-label="Fotos de trabajo"></div>
       </div>
-      <div class="project-sections">
+    </section>
 
-        <div class="project-section-block">
-          <p class="project-section-title">Concepto / Moodboard</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">moodboard 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">moodboard 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">referencia</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Paleta</p>
-          <div class="photo-grid cols-2">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">paleta de color</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">texturas / materiales</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Figurines</p>
-          <div class="photo-grid cols-4">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 4</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Fichas técnicas</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Prendas terminadas</p>
-          <div class="photo-grid cols-2-tall cols-2">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">look 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">look 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">look 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Producción y desfile</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">desfile 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">desfile 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">backstage</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi">
+      <div class="about-ornament" aria-hidden="true">
+        <span class="about-initial" id="aboutInitial">C</span>
+        <p class="about-tagline" data-bind="sobre_mi.frase"></p>
       </div>
-    </div>
-
-    <div class="ornament-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
-
-    <!-- 2. COLECCIÓN DE LENCERÍA -->
-    <div class="project-block" id="pb2">
-      <div class="project-header">
-        <div class="project-number">✦</div>
-        <div class="project-meta">
-          <p class="project-tag">Colección · Facultad</p>
-          <h3 class="project-title">Colección de lencería</h3>
-          <p class="project-desc">Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Figurines, fichas y prendas finales.</p>
-        </div>
+      <div class="about-text">
+        <p class="section-label">Sobre mí</p>
+        <h2 data-bind="sobre_mi.titulo"></h2>
+        <div id="aboutText"></div>
       </div>
-      <div class="project-sections">
+    </section>
 
-        <div class="project-section-block">
-          <p class="project-section-title">Inspiración</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">referencia 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">referencia 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">moodboard</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Figurines</p>
-          <div class="photo-grid cols-4">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">figurín 4</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Fichas técnicas</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">ficha 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Prendas finales</p>
-          <div class="photo-grid cols-2-tall cols-2">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">prenda 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">prenda 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">prenda 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
+    <!-- PROYECTOS -->
+    <section id="proyectos">
+      <div class="proyectos-header">
+        <p class="section-label" style="justify-content:center">Trayectoria</p>
+        <h2 data-bind="proyectos_intro.titulo"></h2>
+        <p data-bind="proyectos_intro.subtitulo"></p>
       </div>
-    </div>
+      <div id="projectList"></div>
+    </section>
 
-    <div class="ornament-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
-
-    <!-- 3. MEIRI DOLL -->
-    <div class="project-block featured" id="pb3">
-      <div class="project-header">
-        <div class="project-number">✦</div>
-        <div class="project-meta">
-          <p class="project-tag">Marca propia · Identidad &amp; Colección</p>
-          <h3 class="project-title">Meiri Doll</h3>
-          <p class="project-desc">Mi marca de indumentaria femenina. Desde el naming y la identidad visual hasta cada prenda: diseño, moldería y contenido pensado en conjunto.</p>
-        </div>
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="contact-inner">
+        <p class="section-label" style="justify-content:center">Hablemos</p>
+        <h2 data-bind="contacto.titulo"></h2>
+        <p class="sub" data-bind="contacto.subtitulo"></p>
+        <div class="contact-links" id="contactLinks"></div>
       </div>
-      <div class="project-sections">
-
-        <div class="project-section-block">
-          <p class="project-section-title">Concepto</p>
-          <div class="photo-grid cols-2">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">concepto 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">concepto 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Diseño de productos</p>
-          <div class="photo-grid cols-3">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">producto 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">producto 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">producto 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Hoodies</p>
-          <div class="photo-grid cols-4">
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">hoodie 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">hoodie 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">hoodie 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">hoodie 4</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Contenido redes</p>
-          <div class="photo-grid cols-3">
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">post ig 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">post ig 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">post ig 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Proceso</p>
-          <div class="photo-grid cols-3">
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">proceso 1</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">proceso 2</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot landscape" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">proceso 3</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Branding</p>
-          <div class="photo-grid cols-3">
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">logo</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">paleta / tipografía</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-            <div class="slot square" onclick="triggerSlot(this)"><label class="slot-label"><svg class="slot-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="slot-text">packaging</span><input type="file" accept="image/*" onchange="loadSlot(this)" /></label><button class="remove-btn" onclick="removeSlot(event,this)">✕</button></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="ornament-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
-
-    <!-- 4. ESTILISMO PARA SESIONES DE FOTOS -->
-    <div class="project-block" id="pb4">
-      <div class="project-header">
-        <div class="project-number">✦</div>
-        <div class="project-meta">
-          <p class="project-tag">Estilismo · Producción fotográfica</p>
-          <h3 class="project-title">Estilismo para sesiones</h3>
-          <p class="project-desc">Selección, armado y dirección de looks para producciones fotográficas. Coordinación entre prendas, accesorios, paleta y concepto visual de cada sesión.</p>
-        </div>
-      </div>
-      <div class="project-sections">
-
-        <div class="project-section-block">
-          <p class="project-section-title">Una misma prenda, diferentes estilismos — cátedra producción de moda</p>
-          <div class="photo-grid cols-3">
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Ballet-03.jpg.jpeg" alt="Estilismo ballet 1" /></div>
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Ballet-21.jpg.jpeg" alt="Estilismo ballet 2" /></div>
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Noche-11.jpg.jpeg" alt="Estilismo noche 1" /></div>
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Noche-18.jpg.jpeg" alt="Estilismo noche 2" /></div>
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Urbano-20.jpg.jpeg" alt="Estilismo urbano 1" /></div>
-            <div class="slot static"><img src="images/estilismo/una-misma-prenda/Urbano-32.jpg.jpeg" alt="Estilismo urbano 2" /></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Sesión editorial "Marie's Dollhouse" — cátedra producción de moda</p>
-          <div class="photo-grid cols-4">
-            <div class="slot static"><img src="images/estilismo/editorial-maries-dollhouse/DSCN7889 (1).jpg.jpeg" alt="Sesión editorial 1" /></div>
-            <div class="slot static"><img src="images/estilismo/editorial-maries-dollhouse/DSCN7906.jpg.jpeg" alt="Sesión editorial 2" /></div>
-            <div class="slot static"><img src="images/estilismo/editorial-maries-dollhouse/DSCN7975 (1).jpg.jpeg" alt="Sesión editorial 3" /></div>
-            <div class="slot static"><img src="images/estilismo/editorial-maries-dollhouse/DSCN8072.jpg.jpeg" alt="Sesión editorial 4" /></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="ornament-sep">✦ &nbsp; ✦ &nbsp; ✦</div>
-
-    <!-- 5. TRABAJOS ANTERIORES DE LA FACULTAD -->
-    <div class="project-block" id="pb5">
-      <div class="project-header">
-        <div class="project-number">✦</div>
-        <div class="project-meta">
-          <p class="project-tag">Trabajos académicos · Facultad</p>
-          <h3 class="project-title">Trabajos anteriores</h3>
-          <p class="project-desc">Ejercicios, prendas y proyectos desarrollados a lo largo de la carrera. Un recorrido por el aprendizaje: materiales, construcción y experimentación.</p>
-        </div>
-      </div>
-      <div class="project-sections">
-
-        <div class="project-section-block">
-          <p class="project-section-title">Desfile primer año</p>
-          <div class="photo-grid cols-3">
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-primer-anio/221116-119.jpg.jpeg" alt="Desfile primer año — prenda 1" /></div>
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-primer-anio/221116-120 (1).jpg.jpeg" alt="Desfile primer año — prenda 2" /></div>
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-primer-anio/20221116_163220.jpg.jpeg" alt="Desfile primer año — prenda 3" /></div>
-          </div>
-        </div>
-
-        <div class="project-section-block">
-          <p class="project-section-title">Desfile segundo año</p>
-          <div class="photo-grid cols-3">
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-segundo-anio/desfile-look-femenino-denim.jpeg" alt="Desfile segundo año — look femenino denim" /></div>
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-segundo-anio/desfile-look-masculino-denim.jpeg" alt="Desfile segundo año — look masculino denim" /></div>
-            <div class="slot static"><img src="images/trabajos-anteriores/desfile-segundo-anio/desfile-look-falda-pantalon.jpeg" alt="Desfile segundo año — look falda pantalón" /></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <div class="contact-inner">
-      <p class="section-label" style="justify-content:center">Hablemos</p>
-      <h2>Trabajemos juntas</h2>
-      <p class="sub">diseño, colaboraciones &amp; consultas</p>
-      <div class="contact-links">
-        <a href="mailto:candela@meiridoll.com" class="contact-link primary">Enviar mail</a>
-        <a href="https://instagram.com/meiridoll" target="_blank" class="contact-link">Instagram</a>
-        <a href="https://wa.me/549XXXXXXXXXX" target="_blank" class="contact-link">WhatsApp</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <span>© 2025 Candela Merás</span>
-    <a href="#hero">Candela Merás</a>
+    <span>© <span id="year"></span> <span data-bind="portada.nombre"></span></span>
+    <a href="#hero" data-bind="portada.nombre"></a>
     <span>Diseñadora de Indumentaria</span>
   </footer>
 
   <!-- LIGHTBOX -->
-  <div id="lightbox" class="lightbox">
-    <button class="lightbox-close">✕</button>
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Cerrar">✕</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
     <img id="lightboxImg" src="" alt="" />
+    <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
   </div>
 
   <script>
-    // Custom cursor
-    const cursor = document.getElementById('cursor');
-    const ring = document.getElementById('cursorRing');
-    document.addEventListener('mousemove', e => {
-      cursor.style.left = e.clientX + 'px';
-      cursor.style.top = e.clientY + 'px';
-      ring.style.left = e.clientX + 'px';
-      ring.style.top = e.clientY + 'px';
-    });
+    // ---------- Utilidades ----------
+    const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    // Las rutas del CMS empiezan con "/"; se vuelven relativas para que funcione en un subdirectorio (GitHub Pages)
+    const src = p => esc(String(p || '').replace(/^\/+/, ''));
+    const get = (obj, path) => path.split('.').reduce((o, k) => (o == null ? o : o[k]), obj);
+    // Texto con párrafos (línea en blanco) y *énfasis* en letra caligráfica
+    const richText = t => String(t || '').split(/\n\s*\n/).filter(p => p.trim())
+      .map(p => '<p>' + esc(p.trim()).replace(/\*(.+?)\*/g, '<em class="script-em">$1</em>').replace(/\n/g, '<br>') + '</p>').join('');
 
-    // Hero carousel
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.hero-carousel-slide');
-    const dots = document.querySelectorAll('.carousel-dot');
+    const FORMATOS = ['vertical', 'horizontal', 'cuadrado', 'panoramico'];
 
-    function goToSlide(n) {
-      slides[currentSlide].classList.remove('active');
-      dots[currentSlide].classList.remove('active');
-      currentSlide = n;
-      slides[currentSlide].classList.add('active');
-      dots[currentSlide].classList.add('active');
+    async function loadJSON(url) {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (!res.ok) throw new Error(url + ': ' + res.status);
+      return res.json();
     }
 
-    setInterval(() => goToSlide((currentSlide + 1) % slides.length), 4000);
-
-    // Slot image upload
-    function triggerSlot(slot) {
-      const input = slot.querySelector('input[type="file"]');
-      if (input) input.click();
-    }
-
-    function loadSlot(input) {
-      const file = input.files[0];
-      if (!file) return;
-      const url = URL.createObjectURL(file);
-      const slot = input.closest('.slot');
-      const label = slot.querySelector('.slot-label');
-      label.style.display = 'none';
-      const existing = slot.querySelector('img');
-      if (existing) existing.remove();
-      const img = document.createElement('img');
-      img.src = url;
-      slot.appendChild(img);
-    }
-
-    function removeSlot(e, btn) {
-      e.stopPropagation();
-      const slot = btn.closest('.slot');
-      const img = slot.querySelector('img');
-      if (img) img.remove();
-      const label = slot.querySelector('.slot-label');
-      if (label) label.style.display = '';
-    }
-
-    // Scroll reveal
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    // ---------- Render ----------
+    function renderGeneral(g) {
+      document.querySelectorAll('[data-bind]').forEach(el => {
+        const v = get(g, el.dataset.bind);
+        if (v != null) el.textContent = v;
       });
-    }, { threshold: 0.12 });
 
-    document.querySelectorAll('.project-block').forEach(el => observer.observe(el));
+      const nombre = (g.portada?.nombre || '').trim();
+      const partes = nombre.split(/\s+/);
+      document.getElementById('heroName').innerHTML = partes.length > 1
+        ? esc(partes[0]) + '<br>' + esc(partes.slice(1).join(' '))
+        : esc(nombre);
+      document.getElementById('aboutInitial').textContent = nombre.charAt(0) || 'C';
+      document.getElementById('aboutText').innerHTML = richText(g.sobre_mi?.texto);
 
-    // Lightbox
+      renderCarousel(g.portada?.fotos || [], nombre);
+
+      const c = g.contacto || {};
+      const links = [];
+      if (c.email) links.push(`<a href="mailto:${esc(c.email)}" class="contact-link primary">Enviar mail</a>`);
+      if (c.instagram) links.push(`<a href="https://instagram.com/${esc(c.instagram.replace(/^@/, ''))}" target="_blank" rel="noopener" class="contact-link">Instagram</a>`);
+      if (c.whatsapp) links.push(`<a href="https://wa.me/${esc(String(c.whatsapp).replace(/\D/g, ''))}" target="_blank" rel="noopener" class="contact-link">WhatsApp</a>`);
+      document.getElementById('contactLinks').innerHTML = links.join('');
+    }
+
+    function renderProjects(data) {
+      const visibles = (data.proyectos || []).filter(p => p.visible !== false);
+      const html = visibles.map((p, i) => {
+        const secciones = (p.secciones || []).filter(s => (s.fotos || []).length);
+        const bloques = secciones.map(s => {
+          const cols = Math.min(Math.max(parseInt(s.columnas, 10) || 3, 1), 4);
+          const formato = FORMATOS.includes(s.formato) ? s.formato : 'vertical';
+          const fotos = s.fotos.map((f, n) => {
+            const alt = `${p.titulo} — ${s.titulo} (${n + 1})`;
+            return `<button type="button" class="photo ${formato}" aria-label="Ampliar: ${esc(alt)}"><img src="${src(f)}" alt="${esc(alt)}" loading="lazy" decoding="async" /></button>`;
+          }).join('');
+          return `<div class="project-section-block">
+              <h4 class="project-section-title">${esc(s.titulo)}</h4>
+              <div class="photo-grid cols-${cols}">${fotos}</div>
+            </div>`;
+        }).join('');
+        const sep = i < visibles.length - 1 ? '<div class="ornament-sep" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>' : '';
+        return `<article class="project-block${p.destacado ? ' featured' : ''}">
+            <div class="project-header">
+              <div class="project-number" aria-hidden="true">✦</div>
+              <div class="project-meta">
+                <p class="project-tag">${esc(p.etiqueta)}</p>
+                <h3 class="project-title">${esc(p.titulo)}</h3>
+                <p class="project-desc">${esc(p.descripcion)}</p>
+              </div>
+            </div>
+            <div class="project-sections">${bloques}</div>
+          </article>${sep}`;
+      }).join('');
+      document.getElementById('projectList').innerHTML = html;
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }); // threshold 0: los proyectos muy largos nunca llegarían a un % alto
+      document.querySelectorAll('.project-block').forEach(el => observer.observe(el));
+    }
+
+    // ---------- Carrusel ----------
+    let carouselTimer = null;
+    function renderCarousel(fotos, nombre) {
+      const el = document.getElementById('heroCarousel');
+      if (!fotos.length) { el.innerHTML = ''; return; }
+      el.innerHTML = fotos.map((f, i) =>
+        `<div class="hero-carousel-slide${i === 0 ? ' active' : ''}" aria-hidden="${i !== 0}"><img src="${src(f)}" alt="${esc(nombre)} — trabajo ${i + 1}" ${i === 0 ? 'fetchpriority="high"' : 'loading="lazy"'} /></div>`
+      ).join('') + (fotos.length > 1 ? `<div class="carousel-dots">${fotos.map((_, i) =>
+        `<button class="carousel-dot${i === 0 ? ' active' : ''}" data-slide="${i}" aria-label="Ver foto ${i + 1}"${i === 0 ? ' aria-current="true"' : ''}></button>`).join('')}</div>` : '');
+
+      const slides = el.querySelectorAll('.hero-carousel-slide');
+      const dots = el.querySelectorAll('.carousel-dot');
+      let current = 0;
+      const goTo = n => {
+        slides[current].classList.remove('active'); slides[current].setAttribute('aria-hidden', 'true');
+        dots[current]?.classList.remove('active'); dots[current]?.removeAttribute('aria-current');
+        current = n;
+        slides[current].classList.add('active'); slides[current].setAttribute('aria-hidden', 'false');
+        dots[current]?.classList.add('active'); dots[current]?.setAttribute('aria-current', 'true');
+      };
+      const start = () => {
+        clearInterval(carouselTimer);
+        if (slides.length > 1 && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+          carouselTimer = setInterval(() => goTo((current + 1) % slides.length), 4000);
+      };
+      dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.slide); start(); }));
+      start();
+    }
+
+    // ---------- Lightbox ----------
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    let group = [], idx = 0, lastFocus = null;
 
-    document.querySelectorAll('.slot.static img').forEach(img => {
-      img.addEventListener('click', () => {
-        lightboxImg.src = img.src;
-        lightbox.classList.add('open');
-      });
+    function showPhoto(i) {
+      idx = (i + group.length) % group.length;
+      lightboxImg.src = group[idx].src;
+      lightboxImg.alt = group[idx].alt;
+      prevBtn.hidden = nextBtn.hidden = group.length < 2;
+    }
+    function openLightbox(img) {
+      group = [...img.closest('.photo-grid').querySelectorAll('img')];
+      lastFocus = document.activeElement;
+      showPhoto(group.indexOf(img));
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      lightbox.querySelector('.lightbox-close').focus();
+    }
+    function closeLightbox() {
+      if (!lightbox.classList.contains('open')) return;
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lastFocus?.focus();
+    }
+
+    document.getElementById('projectList').addEventListener('click', e => {
+      const btn = e.target.closest('.photo');
+      if (btn) openLightbox(btn.querySelector('img'));
     });
-
+    prevBtn.addEventListener('click', () => showPhoto(idx - 1));
+    nextBtn.addEventListener('click', () => showPhoto(idx + 1));
     lightbox.addEventListener('click', e => {
-      if (e.target === lightbox || e.target.classList.contains('lightbox-close')) {
-        lightbox.classList.remove('open');
-      }
+      if (e.target === lightbox || e.target.classList.contains('lightbox-close')) closeLightbox();
+    });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') showPhoto(idx - 1);
+      if (e.key === 'ArrowRight') showPhoto(idx + 1);
+    });
+    // Deslizar con el dedo en el celular
+    let touchX = null;
+    lightbox.addEventListener('touchstart', e => { touchX = e.touches[0].clientX; }, { passive: true });
+    lightbox.addEventListener('touchend', e => {
+      if (touchX == null || group.length < 2) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      if (Math.abs(dx) > 50) showPhoto(idx + (dx < 0 ? 1 : -1));
+      touchX = null;
     });
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') lightbox.classList.remove('open');
-    });
+    // ---------- Cursor personalizado (solo mouse, sin "reducir movimiento") ----------
+    if (matchMedia('(hover: hover) and (pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.body.classList.add('custom-cursor');
+      const cursor = document.getElementById('cursor');
+      const ring = document.getElementById('cursorRing');
+      document.addEventListener('mousemove', e => {
+        cursor.style.left = ring.style.left = e.clientX + 'px';
+        cursor.style.top = ring.style.top = e.clientY + 'px';
+      });
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---------- Carga del contenido ----------
+    Promise.all([loadJSON('content/general.json'), loadJSON('content/proyectos.json')])
+      .then(([general, proyectos]) => { renderGeneral(general); renderProjects(proyectos); })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('projectList').innerHTML =
+          '<p class="load-error">No se pudo cargar el contenido. Si abriste el archivo directamente, levantá un servidor local (ver README).</p>';
+      });
   </script>
 </body>
 </html>

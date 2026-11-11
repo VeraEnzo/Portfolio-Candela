@@ -1,0 +1,109 @@
+{
+  "proyectos": [
+    {
+      "titulo": "Marie's Dollhouse",
+      "etiqueta": "Colección de egreso · Facultad",
+      "descripcion": "Colección final de grado inspirada en el universo de las muñecas vintage, la feminidad y lo onírico. Un trabajo integral de diseño, moldería y construcción.",
+      "visible": false,
+      "destacado": false,
+      "secciones": [
+        { "titulo": "Concepto / Moodboard", "columnas": "3", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Paleta", "columnas": "2", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Figurines", "columnas": "4", "formato": "vertical", "fotos": [] },
+        { "titulo": "Fichas técnicas", "columnas": "3", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Prendas terminadas", "columnas": "2", "formato": "vertical", "fotos": [] },
+        { "titulo": "Producción y desfile", "columnas": "3", "formato": "horizontal", "fotos": [] }
+      ]
+    },
+    {
+      "titulo": "Colección de lencería",
+      "etiqueta": "Colección · Facultad",
+      "descripcion": "Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Figurines, fichas y prendas finales.",
+      "visible": false,
+      "destacado": false,
+      "secciones": [
+        { "titulo": "Inspiración", "columnas": "3", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Figurines", "columnas": "4", "formato": "vertical", "fotos": [] },
+        { "titulo": "Fichas técnicas", "columnas": "3", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Prendas finales", "columnas": "2", "formato": "vertical", "fotos": [] }
+      ]
+    },
+    {
+      "titulo": "Meiri Doll",
+      "etiqueta": "Marca propia · Identidad & Colección",
+      "descripcion": "Mi marca de indumentaria femenina. Desde el naming y la identidad visual hasta cada prenda: diseño, moldería y contenido pensado en conjunto.",
+      "visible": true,
+      "destacado": true,
+      "secciones": [
+        { "titulo": "Concepto", "columnas": "2", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Diseño de productos", "columnas": "3", "formato": "vertical", "fotos": ["/images/meiri-doll/figurines-1.webp"] },
+        { "titulo": "Hoodies", "columnas": "4", "formato": "vertical", "fotos": [] },
+        { "titulo": "Contenido redes", "columnas": "3", "formato": "cuadrado", "fotos": [] },
+        { "titulo": "Proceso", "columnas": "3", "formato": "horizontal", "fotos": [] },
+        { "titulo": "Branding", "columnas": "3", "formato": "cuadrado", "fotos": [] }
+      ]
+    },
+    {
+      "titulo": "Estilismo para sesiones",
+      "etiqueta": "Estilismo · Producción fotográfica",
+      "descripcion": "Selección, armado y dirección de looks para producciones fotográficas. Coordinación entre prendas, accesorios, paleta y concepto visual de cada sesión.",
+      "visible": true,
+      "destacado": false,
+      "secciones": [
+        {
+          "titulo": "Una misma prenda, diferentes estilismos — cátedra producción de moda",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/estilismo/una-misma-prenda/ballet-1.webp",
+            "/images/estilismo/una-misma-prenda/ballet-2.webp",
+            "/images/estilismo/una-misma-prenda/noche-1.webp",
+            "/images/estilismo/una-misma-prenda/noche-2.webp",
+            "/images/estilismo/una-misma-prenda/urbano-1.webp",
+            "/images/estilismo/una-misma-prenda/urbano-2.webp"
+          ]
+        },
+        {
+          "titulo": "Sesión editorial \"Marie's Dollhouse\" — cátedra producción de moda",
+          "columnas": "4",
+          "formato": "vertical",
+          "fotos": [
+            "/images/estilismo/editorial-maries-dollhouse/editorial-1.webp",
+            "/images/estilismo/editorial-maries-dollhouse/editorial-2.webp",
+            "/images/estilismo/editorial-maries-dollhouse/editorial-3.webp",
+            "/images/estilismo/editorial-maries-dollhouse/editorial-4.webp"
+          ]
+        }
+      ]
+    },
+    {
+      "titulo": "Trabajos anteriores",
+      "etiqueta": "Trabajos académicos · Facultad",
+      "descripcion": "Ejercicios, prendas y proyectos desarrollados a lo largo de la carrera. Un recorrido por el aprendizaje: materiales, construcción y experimentación.",
+      "visible": true,
+      "destacado": false,
+      "secciones": [
+        {
+          "titulo": "Desfile primer año",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/trabajos-anteriores/desfile-primer-anio/look-1.webp",
+            "/images/trabajos-anteriores/desfile-primer-anio/look-2.webp",
+            "/images/trabajos-anteriores/desfile-primer-anio/look-3.webp"
+          ]
+        },
+        {
+          "titulo": "Desfile segundo año",
+          "columnas": "3",
+          "formato": "vertical",
+          "fotos": [
+            "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
+            "/images/trabajos-anteriores/desfile-segundo-anio/look-masculino-denim.webp",
+            "/images/trabajos-anteriores/desfile-segundo-anio/look-falda-pantalon.webp"
+          ]
+        }
+      ]
+    }
+  ]
+}

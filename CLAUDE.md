@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static single-page portfolio for Candela Merás, an Argentine fashion designer (brand: Meiri Doll). The entire site lives in a single `index.html` file — no build system, no package manager, no backend.
+Static single-page portfolio for Candela Merás, an Argentine fashion designer (brand: Meiri Doll). No build system, no package manager, no backend. Hosted on GitHub Pages (`https://veraenzo.github.io/Portfolio-Candela/`, i.e. served from a **subpath** — keep all asset URLs relative). The owner edits content from her phone via Sveltia CMS at `/admin/`.
 
 ## Running Locally
 
-No build step. Open directly or serve statically:
+Must be served over HTTP (content is loaded with `fetch`; `file://` won't work):
 
 ```bash
 python -m http.server 8000
@@ -18,27 +18,24 @@ npx http-server
 
 ## Architecture
 
-Everything is in `index.html`:
-- **~650 lines of embedded CSS** in a `<style>` block
-- **~65 lines of vanilla JS** in a `<script>` block at the bottom
-- No external JS dependencies; Google Fonts loaded via CDN
+- `index.html` — all CSS (in `<style>`) and JS (in `<script>`). The `<body>` is a shell; JS fetches the JSON content and renders it.
+- `content/general.json` — hero (`portada`, incl. carousel `fotos`), `sobre_mi`, `proyectos_intro`, `contacto`. Elements with `data-bind="a.b"` get `textContent` from that path.
+- `content/proyectos.json` — `{ proyectos: [{ titulo, etiqueta, descripcion, visible, destacado, secciones: [{ titulo, columnas: "1".."4", formato: vertical|horizontal|cuadrado|panoramico, fotos: [path] }] }] }`. Projects with `visible: false` and sections with no photos are not rendered.
+- `admin/index.html` + `admin/config.yml` — Sveltia CMS. **Any change to the JSON shape must be mirrored in `config.yml`** (and vice versa). Auth goes through a sveltia-cms-auth Cloudflare Worker (`backend.base_url`).
+- `images/` — WebP only (CMS converts uploads to WebP ≤2048px). CMS uploads land in `images/subidas/`. Paths in JSON start with `/images/...`; the renderer strips the leading slash so they resolve under the GitHub Pages subpath.
+- SEO/Open Graph tags are static in `<head>` (crawlers don't run JS); `images/og-image.jpg` is the 1200×630 share image.
 
-### Sections (top to bottom)
-`nav` → `#inicio` (hero) → `#sobre` (about) → `#proyectos` (3 project blocks) → `#contacto` → `footer`
+### Sections
+`nav` → `#hero` (carousel) → `#sobre-mi` → `#proyectos` (`#projectList`, rendered) → `#contacto` → `footer` → lightbox.
 
 ### CSS System
-All colors are CSS variables in `:root`: `--rose`, `--burgundy`, `--cream`, `--ink-rose`, `--muted`, etc. Typography mixes Jost (UI/body), Cormorant Garamond (subtitles), and Great Vibes (script titles). Single mobile breakpoint at `@media (max-width: 860px)`.
+Colors are CSS variables in `:root` (`--rose`, `--burgundy`, `--cream`, `--ink-rose`, `--muted`, …). Fonts: Jost (UI/body), Cormorant Garamond (subtitles), Pinyon Script (script titles). Breakpoints: 860px and 480px; `prefers-reduced-motion` disables animations. Grid classes `cols-1..4`; photo shape classes on `.photo`: `vertical` (3/4, default), `horizontal`, `cuadrado`, `panoramico`.
 
 ### JS Behavior
-- **Custom cursor**: Two fixed-position elements (`.cursor` dot + `.cursor-ring`) driven by `mousemove`. Body has `cursor: none`.
-- **Image uploads**: `.slot` divs wrap hidden `<input type="file">`. `loadSlot()` calls `URL.createObjectURL()` and injects an `<img>`. `removeSlot()` removes it. No persistence — refresh clears all images.
-- **Scroll reveal**: `IntersectionObserver` at threshold 0.12 adds `.visible` to `.project-block` elements.
-- **Hero upload**: Separate `heroUpload()` function handles the hero photo slot.
+- Always escape CMS content with `esc()` before inserting HTML. `sobre_mi.texto` supports blank-line paragraphs and `*text*` → script-font emphasis.
+- Custom cursor only on `(hover: hover) and (pointer: fine)` without reduced motion (adds `body.custom-cursor`).
+- Scroll reveal: `IntersectionObserver` (threshold 0) adds `.visible` to `.project-block`.
+- Lightbox: click a `.photo` → navigates within that grid (arrows, keyboard ←/→/Esc, swipe).
 
-### Project Grids
-Photo grids use utility classes (`cols-1`, `cols-2`, `cols-3`, `cols-4`, `cols-2-tall`) that map to CSS Grid layouts. Slots have fixed `aspect-ratio` values (3/4, 4/3, 1, 16/7).
-
-## Contact Info in HTML
-- Email: `candela@meiridoll.com`
-- Instagram: `@meiridoll`
-- WhatsApp number is a placeholder — update it in the HTML before deploying
+## Contact Info
+Lives in `content/general.json` (`contacto`): email `candela@meiridoll.com`, Instagram `meiridoll`, WhatsApp `5493415706842`.

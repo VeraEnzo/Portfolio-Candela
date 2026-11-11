@@ -1,0 +1,30 @@
+{
+  "portada": {
+    "etiqueta": "Diseñadora de Indumentaria · Argentina",
+    "nombre": "Candela Merás",
+    "subtitulo": "moda, moldería & marca propia",
+    "descripcion": "Diseño con mirada propia: desde la moldería hasta la identidad de marca. Mi trabajo nace del detalle, la feminidad y lo genuinamente artesanal.",
+    "fotos": [
+      "/images/hero/figurines-marcadores.webp",
+      "/images/hero/proceso-moodboard-encajes.webp",
+      "/images/hero/molderia-tijera.webp",
+      "/images/hero/molderia-patrones.webp"
+    ]
+  },
+  "sobre_mi": {
+    "frase": "diseño con alma",
+    "titulo": "Hola, soy Candela",
+    "texto": "Soy Candela Merás, diseñadora de indumentaria formada en Argentina. Trabajo en el proceso completo: moldería, confección, identidad de marca y estrategia de contenido.\n\nMi estética nace de lo femenino, lo nostálgico y el detalle bien hecho. Trabajo con encajes, frisa, denim y rústico, buscando prendas que cuenten algo.\n\nFundé *Meiri Doll*, mi propia marca de indumentaria femenina, donde el diseño y la identidad de marca conviven desde el primer boceto."
+  },
+  "proyectos_intro": {
+    "titulo": "Mis proyectos",
+    "subtitulo": "un recorrido desde los primeros trabajos hasta hoy"
+  },
+  "contacto": {
+    "titulo": "Trabajemos juntas",
+    "subtitulo": "diseño, colaboraciones & consultas",
+    "email": "candela@meiridoll.com",
+    "instagram": "meiridoll",
+    "whatsapp": "5493415706842"
+  }
+}

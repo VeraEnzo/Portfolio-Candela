@@ -1,0 +1,154 @@
+# Configuración de Sveltia CMS — https://sveltiacms.app/en/docs
+# Candela entra en https://veraenzo.github.io/Portfolio-Candela/admin/ con su cuenta de GitHub.
+
+backend:
+  name: github
+  repo: VeraEnzo/Portfolio-Candela
+  branch: main
+  # Worker de sveltia-cms-auth (compartido con Meiri.doll). El dominio del sitio
+  # tiene que estar en la variable ALLOWED_DOMAINS del Worker (Cloudflare).
+  base_url: https://sveltia-cms-auth.enzovera646.workers.dev
+  commit_messages:
+    create: "Crea {{collection}} “{{slug}}”"
+    update: "Actualiza {{collection}} “{{slug}}”"
+    delete: "Borra {{collection}} “{{slug}}”"
+    uploadMedia: "Sube “{{path}}”"
+    deleteMedia: "Borra “{{path}}”"
+
+site_url: https://veraenzo.github.io/Portfolio-Candela/
+display_url: https://veraenzo.github.io/Portfolio-Candela/
+
+# Fotos nuevas: se guardan en /images/subidas
+media_folder: images/subidas
+public_folder: /images/subidas
+
+# Las fotos se achican y convierten a WebP en el celular ANTES de subirse
+media_libraries:
+  all:
+    transformations:
+      raster_image:
+        format: webp
+        quality: 85
+        width: 2048
+        height: 2048
+
+collections:
+  - name: contenido
+    label: Contenido de la página
+    editor:
+      preview: false
+    files:
+      # ------------------------------------------------------------
+      - name: general
+        label: Portada, Sobre mí y Contacto
+        file: content/general.json
+        format: json
+        fields:
+          - name: portada
+            label: Portada
+            widget: object
+            fields:
+              - { name: etiqueta, label: Texto chico de arriba, widget: string }
+              - { name: nombre, label: Nombre, widget: string }
+              - { name: subtitulo, label: Subtítulo, widget: string }
+              - { name: descripcion, label: Descripción, widget: text }
+              - name: fotos
+                label: Fotos del carrusel
+                hint: Van rotando cada 4 segundos. Se pueden reordenar arrastrando.
+                widget: image
+                multiple: true
+                min: 1
+
+          - name: sobre_mi
+            label: Sobre mí
+            widget: object
+            fields:
+              - { name: frase, label: Frase debajo de la inicial, widget: string }
+              - { name: titulo, label: Título, widget: string }
+              - name: texto
+                label: Texto
+                hint: Dejá una línea en blanco para separar párrafos. Poné una palabra entre *asteriscos* para mostrarla en letra caligráfica.
+                widget: text
+
+          - name: proyectos_intro
+            label: Encabezado de Proyectos
+            widget: object
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: subtitulo, label: Subtítulo, widget: string }
+
+          - name: contacto
+            label: Contacto
+            widget: object
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: subtitulo, label: Subtítulo, widget: string }
+              - { name: email, label: Email, widget: string, required: false }
+              - { name: instagram, label: Usuario de Instagram (sin @), widget: string, required: false }
+              - name: whatsapp
+                label: WhatsApp
+                hint: Con código de país y sin espacios ni signos. Ej. 5493415706842
+                widget: string
+                required: false
+                pattern: ['^[0-9]*$', 'Solo números, sin espacios ni +']
+
+      # ------------------------------------------------------------
+      - name: proyectos
+        label: Proyectos
+        file: content/proyectos.json
+        format: json
+        fields:
+          - name: proyectos
+            label: Proyectos
+            label_singular: proyecto
+            hint: Se muestran en este orden. Arrastrá para reordenar.
+            widget: list
+            summary: "{{fields.titulo}}"
+            collapsed: true
+            fields:
+              - { name: titulo, label: Título, widget: string }
+              - { name: etiqueta, label: Etiqueta (ej. Colección · Facultad), widget: string, required: false }
+              - { name: descripcion, label: Descripción, widget: text, required: false }
+              - name: visible
+                label: Mostrar en la página
+                hint: Desactivalo para ocultarlo mientras lo vas armando.
+                widget: boolean
+                default: true
+              - name: destacado
+                label: Destacado (fondo color crema)
+                widget: boolean
+                default: false
+              - name: secciones
+                label: Secciones
+                label_singular: sección
+                hint: Las secciones sin fotos no se muestran.
+                widget: list
+                summary: "{{fields.titulo}}"
+                collapsed: true
+                fields:
+                  - { name: titulo, label: Título de la sección, widget: string }
+                  - name: columnas
+                    label: Fotos por fila
+                    hint: En el celular se muestran como máximo 2 por fila.
+                    widget: select
+                    default: "3"
+                    options:
+                      - { label: "1", value: "1" }
+                      - { label: "2", value: "2" }
+                      - { label: "3", value: "3" }
+                      - { label: "4", value: "4" }
+                  - name: formato
+                    label: Forma de las fotos
+                    hint: Las fotos se recortan a esta forma en la grilla; al tocarlas se ven completas.
+                    widget: select
+                    default: vertical
+                    options:
+                      - { label: Vertical (3:4), value: vertical }
+                      - { label: Horizontal (4:3), value: horizontal }
+                      - { label: Cuadrada, value: cuadrado }
+                      - { label: Panorámica, value: panoramico }
+                  - name: fotos
+                    label: Fotos
+                    widget: image
+                    multiple: true
+                    required: false
