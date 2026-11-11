@@ -3,8 +3,8 @@
     {
       "titulo": "Marie's Dollhouse",
       "etiqueta": "Colección de egreso · Facultad",
-      "descripcion": "Colección final de grado inspirada en el universo de las muñecas vintage, la feminidad y lo onírico. Un trabajo integral de diseño, moldería y construcción.",
-      "visible": false,
+      "descripcion": "Colección final de grado inspirada en la nostalgia de la infancia, combinado con el Rococó. Un trabajo integral de diseño, moldería y construcción.",
+      "visible": true,
       "destacado": false,
       "secciones": [
         {
@@ -35,13 +35,26 @@
           "titulo": "Prendas terminadas",
           "columnas": "2",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/9991.webp",
+            "/images/subidas/11568.webp",
+            "/images/subidas/11558.webp",
+            "/images/subidas/11560.webp",
+            "/images/subidas/11506.webp",
+            "/images/subidas/11496.webp",
+            "/images/subidas/333016.webp"
+          ]
         },
         {
           "titulo": "Producción y desfile",
           "columnas": "3",
           "formato": "horizontal",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/1628.webp",
+            "/images/subidas/1637.webp",
+            "/images/subidas/1669.webp",
+            "/images/subidas/1675.webp"
+          ]
         }
       ]
     },
