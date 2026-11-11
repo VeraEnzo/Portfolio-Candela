@@ -63,10 +63,12 @@ Una sección **sin fotos ni videos no se muestra**, así que podés dejar seccio
 
 ### Subir videos
 
-Los videos **no se comprimen solos** (las fotos sí), así que hay un límite: **30 MB por video**. Si el video pesa más, el panel no te deja subirlo.
+Los videos **no se comprimen solos** (las fotos sí), así que hay un límite: **10 MB por video**. Si el video pesa más, el panel no te deja subirlo. (Videos más pesados fallan al guardar con el error "Failed to fetch": es un límite de cómo el panel se comunica con GitHub.)
 
 - Que sean **clips cortos** (menos de 1 minuto).
-- Si pesa más de 30 MB, achicalo antes con una app gratuita de comprimir video (buscá "comprimir video" en la App Store o Play Store) y exportalo en **MP4, 720p o 1080p**. Un clip de 30 segundos en 720p suele pesar entre 5 y 15 MB.
+- Si pesa más de 10 MB, achicalo antes con una app gratuita de comprimir video (buscá "comprimir video" en la App Store o Play Store) y exportalo en **MP4, 720p**. Un clip de 30 segundos en 720p suele pesar entre 5 y 10 MB. Si no llega, pasáselo a Enzo y lo comprime él.
+- **Subí cada video y tocá Guardar antes de seguir cargando otras cosas.** Si en un mismo guardado juntás un video y muchas fotos nuevas, puede fallar.
+- Si aparece "Failed to fetch" al guardar, no se perdió nada de lo que ya estaba publicado: tocá OK, sacá el video, guardá, y achicalo antes de volver a intentar.
 - En iPhone: Ajustes → Cámara → Formatos → **"Más compatible"**. Así el video se ve en todos los navegadores (el formato "Alta eficiencia" no se ve en algunos Android y computadoras). Grabar en 1080p en vez de 4K también ayuda mucho.
 - Cuanto más liviano, más rápido carga la web para quien la visita.
 
