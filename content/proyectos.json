@@ -27,10 +27,22 @@
           "fotos": []
         },
         {
-          "titulo": "Fichas técnicas",
+          "titulo": "Fichas técnicas - Manual de producto",
           "columnas": "3",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333250.webp",
+            "/images/subidas/333249.webp",
+            "/images/subidas/333257.webp",
+            "/images/subidas/333259.webp",
+            "/images/subidas/333255.webp",
+            "/images/subidas/333254.webp",
+            "/images/subidas/333251.webp",
+            "/images/subidas/333253.webp",
+            "/images/subidas/333252.webp",
+            "/images/subidas/333258.webp",
+            "/images/subidas/333256.webp"
+          ]
         },
         {
           "titulo": "Prendas terminadas",
