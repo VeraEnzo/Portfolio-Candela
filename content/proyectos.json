@@ -130,9 +130,9 @@
       ]
     },
     {
-      "titulo": "Colección de lencería",
+      "titulo": "Colección de lencería - Short n Sweet",
       "etiqueta": "Colección · Facultad",
-      "descripcion": "Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Figurines, fichas y prendas finales.",
+      "descripcion": "Diseño de indumentaria íntima con foco en la feminidad, el detalle y la construcción delicada. Inspirada en Sabrina Carpenter",
       "visible": false,
       "destacado": false,
       "secciones": [
@@ -140,13 +140,18 @@
           "titulo": "Inspiración",
           "columnas": "3",
           "formato": "horizontal",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333033.webp",
+            "/images/subidas/333034.webp"
+          ]
         },
         {
-          "titulo": "Figurines",
+          "titulo": "Diseños digitales",
           "columnas": "4",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333035.webp"
+          ]
         },
         {
           "titulo": "Fichas técnicas",
