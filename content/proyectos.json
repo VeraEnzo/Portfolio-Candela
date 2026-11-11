@@ -22,9 +22,16 @@
         },
         {
           "titulo": "Figurines",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333266.webp",
+            "/images/subidas/333267.webp",
+            "/images/subidas/333268.webp",
+            "/images/subidas/333269.webp",
+            "/images/subidas/333270.webp",
+            "/images/subidas/333271.webp"
+          ]
         },
         {
           "titulo": "Fichas técnicas - Manual de producto",
