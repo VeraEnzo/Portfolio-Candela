@@ -22,7 +22,7 @@
         },
         {
           "titulo": "Figurines",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333266.webp",
@@ -35,7 +35,7 @@
         },
         {
           "titulo": "Fichas técnicas - Manual de producto",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333250.webp",
@@ -53,7 +53,7 @@
         },
         {
           "titulo": "Prendas terminadas",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/11568.webp",
@@ -66,7 +66,7 @@
         },
         {
           "titulo": "Producción y desfile",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/1628.webp",
@@ -87,7 +87,7 @@
       "secciones": [
         {
           "titulo": "Mini colección \"Dear Diary\"",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/meiri-doll/figurines-1.webp",
@@ -98,13 +98,13 @@
         },
         {
           "titulo": "Contenido redes",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "cuadrado",
           "fotos": []
         },
         {
           "titulo": "Branding",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "cuadrado",
           "fotos": []
         }
@@ -119,7 +119,7 @@
       "secciones": [
         {
           "titulo": "Desfiles",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/201253.webp",
@@ -162,13 +162,23 @@
         },
         {
           "titulo": "Fichas técnicas",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333287.webp",
+            "/images/subidas/333285.webp",
+            "/images/subidas/333282.webp",
+            "/images/subidas/333293.webp",
+            "/images/subidas/333291.webp",
+            "/images/subidas/333288.webp",
+            "/images/subidas/333298.webp",
+            "/images/subidas/333296.webp",
+            "/images/subidas/333295.webp"
+          ]
         },
         {
           "titulo": "Prendas finales",
-          "columnas": "2",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": []
         }
@@ -183,7 +193,7 @@
       "secciones": [
         {
           "titulo": "Una misma prenda, diferentes estilismos — cátedra producción de moda",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/estilismo/una-misma-prenda/ballet-1.webp",
@@ -196,7 +206,7 @@
         },
         {
           "titulo": "Sesión editorial \"Marie's Dollhouse\" — cátedra producción de moda",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/estilismo/editorial-maries-dollhouse/editorial-1.webp",
@@ -207,7 +217,7 @@
         },
         {
           "titulo": "Sesiones de Meiri Doll",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/265657.webp",
@@ -233,7 +243,7 @@
       "secciones": [
         {
           "titulo": "Desfile primer año",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/trabajos-anteriores/desfile-primer-anio/look-1.webp",
@@ -243,7 +253,7 @@
         },
         {
           "titulo": "Desfile segundo año",
-          "columnas": "4",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
