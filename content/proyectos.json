@@ -9,7 +9,7 @@
       "secciones": [
         {
           "titulo": "Concepto / Moodboard",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333200.webp",
@@ -22,7 +22,7 @@
         },
         {
           "titulo": "Figurines",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333266.webp",
@@ -35,7 +35,7 @@
         },
         {
           "titulo": "Fichas técnicas - Manual de producto",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333250.webp",
@@ -53,7 +53,7 @@
         },
         {
           "titulo": "Prendas terminadas",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/11568.webp",
@@ -66,7 +66,7 @@
         },
         {
           "titulo": "Producción y desfile",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/1628.webp",
@@ -87,7 +87,7 @@
       "secciones": [
         {
           "titulo": "Mini colección \"Dear Diary\"",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/meiri-doll/figurines-1.webp",
@@ -98,13 +98,13 @@
         },
         {
           "titulo": "Contenido redes",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "cuadrado",
           "fotos": []
         },
         {
           "titulo": "Branding",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "cuadrado",
           "fotos": []
         }
@@ -112,14 +112,14 @@
     },
     {
       "titulo": "Producción de moda",
-      "etiqueta": "Vestisora en Desfiles",
+      "etiqueta": "Vestidora en Desfiles",
       "descripcion": "Coordinación integral de backstage, fittings y cambios rápidos de vestuario para garantizar la fluidez de las pasarelas.",
       "visible": true,
       "destacado": true,
       "secciones": [
         {
           "titulo": "Desfiles",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/201253.webp",
@@ -153,7 +153,7 @@
         },
         {
           "titulo": "Diseños digitales",
-          "columnas": "4",
+          "columnas": "2",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/333035.webp",
@@ -162,7 +162,7 @@
         },
         {
           "titulo": "Fichas técnicas",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": []
         },
@@ -183,7 +183,7 @@
       "secciones": [
         {
           "titulo": "Una misma prenda, diferentes estilismos — cátedra producción de moda",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/estilismo/una-misma-prenda/ballet-1.webp",
@@ -207,7 +207,7 @@
         },
         {
           "titulo": "Sesiones de Meiri Doll",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/265657.webp",
@@ -233,7 +233,7 @@
       "secciones": [
         {
           "titulo": "Desfile primer año",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/trabajos-anteriores/desfile-primer-anio/look-1.webp",
@@ -243,7 +243,7 @@
         },
         {
           "titulo": "Desfile segundo año",
-          "columnas": "3",
+          "columnas": "4",
           "formato": "vertical",
           "fotos": [
             "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
