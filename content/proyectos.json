@@ -18,7 +18,8 @@
             "/images/subidas/333206.webp",
             "/images/subidas/333210.webp",
             "/images/subidas/333242.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Figurines",
@@ -31,7 +32,8 @@
             "/images/subidas/333269.webp",
             "/images/subidas/333270.webp",
             "/images/subidas/333271.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Fichas técnicas - Manual de producto",
@@ -49,7 +51,8 @@
             "/images/subidas/333252.webp",
             "/images/subidas/333258.webp",
             "/images/subidas/333256.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Prendas terminadas",
@@ -62,7 +65,8 @@
             "/images/subidas/11506.webp",
             "/images/subidas/11496.webp",
             "/images/subidas/333273.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Producción y desfile",
@@ -74,6 +78,9 @@
             "/images/subidas/1669.webp",
             "/images/subidas/1675.webp",
             "/images/subidas/9991.webp"
+          ],
+          "videos": [
+            "/images/subidas/10524.mp4"
           ]
         }
       ]
@@ -94,19 +101,22 @@
             "/images/subidas/271187.webp",
             "/images/subidas/265813.webp",
             "/images/subidas/265657.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Contenido redes",
           "columnas": "3",
           "formato": "cuadrado",
-          "fotos": []
+          "fotos": [],
+          "videos": []
         },
         {
           "titulo": "Branding",
           "columnas": "3",
           "formato": "cuadrado",
-          "fotos": []
+          "fotos": [],
+          "videos": []
         }
       ]
     },
@@ -130,7 +140,8 @@
             "/images/subidas/267768.webp",
             "/images/subidas/267770.webp",
             "/images/subidas/267729.webp"
-          ]
+          ],
+          "videos": []
         }
       ]
     },
@@ -149,7 +160,8 @@
             "/images/subidas/333046.webp",
             "/images/subidas/333033.webp",
             "/images/subidas/333034.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Diseños digitales",
@@ -158,7 +170,8 @@
           "fotos": [
             "/images/subidas/333035.webp",
             "/images/subidas/333045.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Fichas técnicas",
@@ -174,13 +187,15 @@
             "/images/subidas/333298.webp",
             "/images/subidas/333296.webp",
             "/images/subidas/333295.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Prendas finales",
           "columnas": "3",
           "formato": "vertical",
-          "fotos": []
+          "fotos": [],
+          "videos": []
         }
       ]
     },
@@ -202,7 +217,8 @@
             "/images/estilismo/una-misma-prenda/noche-2.webp",
             "/images/estilismo/una-misma-prenda/urbano-1.webp",
             "/images/estilismo/una-misma-prenda/urbano-2.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Sesión editorial \"Marie's Dollhouse\" — cátedra producción de moda",
@@ -213,7 +229,8 @@
             "/images/estilismo/editorial-maries-dollhouse/editorial-2.webp",
             "/images/estilismo/editorial-maries-dollhouse/editorial-3.webp",
             "/images/estilismo/editorial-maries-dollhouse/editorial-4.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Sesiones de Meiri Doll",
@@ -230,7 +247,8 @@
             "/images/subidas/215065.webp",
             "/images/subidas/215063.webp",
             "/images/subidas/215062.webp"
-          ]
+          ],
+          "videos": []
         }
       ]
     },
@@ -249,7 +267,8 @@
             "/images/trabajos-anteriores/desfile-primer-anio/look-1.webp",
             "/images/trabajos-anteriores/desfile-primer-anio/look-2.webp",
             "/images/trabajos-anteriores/desfile-primer-anio/look-3.webp"
-          ]
+          ],
+          "videos": []
         },
         {
           "titulo": "Desfile segundo año",
@@ -259,7 +278,8 @@
             "/images/trabajos-anteriores/desfile-segundo-anio/look-femenino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-masculino-denim.webp",
             "/images/trabajos-anteriores/desfile-segundo-anio/look-falda-pantalon.webp"
-          ]
+          ],
+          "videos": []
         }
       ]
     }
