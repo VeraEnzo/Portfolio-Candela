@@ -66,35 +66,20 @@
       "destacado": true,
       "secciones": [
         {
-          "titulo": "Concepto",
-          "columnas": "2",
-          "formato": "horizontal",
-          "fotos": []
-        },
-        {
-          "titulo": "Diseño de productos",
+          "titulo": "Mini colección \"Dear Diary\"",
           "columnas": "3",
           "formato": "vertical",
           "fotos": [
-            "/images/meiri-doll/figurines-1.webp"
+            "/images/meiri-doll/figurines-1.webp",
+            "/images/subidas/271187.webp",
+            "/images/subidas/265813.webp",
+            "/images/subidas/265657.webp"
           ]
-        },
-        {
-          "titulo": "Hoodies",
-          "columnas": "4",
-          "formato": "vertical",
-          "fotos": []
         },
         {
           "titulo": "Contenido redes",
           "columnas": "3",
           "formato": "cuadrado",
-          "fotos": []
-        },
-        {
-          "titulo": "Proceso",
-          "columnas": "3",
-          "formato": "horizontal",
           "fotos": []
         },
         {
