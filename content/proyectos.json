@@ -10,7 +10,7 @@
         {
           "titulo": "Concepto / Moodboard",
           "columnas": "3",
-          "formato": "horizontal",
+          "formato": "vertical",
           "fotos": []
         },
         {
@@ -33,7 +33,7 @@
         },
         {
           "titulo": "Prendas terminadas",
-          "columnas": "2",
+          "columnas": "3",
           "formato": "vertical",
           "fotos": [
             "/images/subidas/9991.webp",
@@ -48,7 +48,7 @@
         {
           "titulo": "Producción y desfile",
           "columnas": "3",
-          "formato": "horizontal",
+          "formato": "vertical",
           "fotos": [
             "/images/subidas/1628.webp",
             "/images/subidas/1637.webp",
