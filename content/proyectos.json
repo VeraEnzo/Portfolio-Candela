@@ -96,7 +96,7 @@
       "titulo": "Producción de moda",
       "etiqueta": "Vestisora en Desfiles",
       "descripcion": "Coordinación integral de backstage, fittings y cambios rápidos de vestuario para garantizar la fluidez de las pasarelas.",
-      "visible": false,
+      "visible": true,
       "destacado": true,
       "secciones": [
         {
