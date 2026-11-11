@@ -11,13 +11,13 @@
           "titulo": "Concepto / Moodboard",
           "columnas": "3",
           "formato": "vertical",
-          "fotos": []
-        },
-        {
-          "titulo": "Paleta",
-          "columnas": "2",
-          "formato": "horizontal",
-          "fotos": []
+          "fotos": [
+            "/images/subidas/333200.webp",
+            "/images/subidas/333202.webp",
+            "/images/subidas/333204.webp",
+            "/images/subidas/333206.webp",
+            "/images/subidas/333210.webp"
+          ]
         },
         {
           "titulo": "Figurines",
@@ -28,7 +28,7 @@
         {
           "titulo": "Fichas técnicas",
           "columnas": "3",
-          "formato": "horizontal",
+          "formato": "vertical",
           "fotos": []
         },
         {
