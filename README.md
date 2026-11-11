@@ -39,6 +39,8 @@ Vas a ver **"Contenido de la página"** con dos partes:
 
 Es una lista: los proyectos aparecen en la web **en el mismo orden** que acá. Para cambiar el orden, arrastralos.
 
+En la web los proyectos aparecen **cerrados**: se ve el título, la descripción, 4 fotos chiquitas de muestra (las primeras del proyecto) y "Ver proyecto". Al tocarlo se despliega. Cada proyecto abierto tiene su propio link (ej. `candelameras.vercel.app/#meiri-doll`) que podés copiar del navegador y mandar: abre directo ese proyecto.
+
 Cada proyecto tiene:
 
 - **Título**, **Etiqueta** (el texto chico de arriba, ej. *Colección · Facultad*) y **Descripción**.
@@ -49,14 +51,24 @@ Cada proyecto tiene:
   - **Fotos por fila**: 1 a 4. En el celular se ven como máximo 2 por fila.
   - **Forma de las fotos**: vertical, horizontal, cuadrada o panorámica. En la grilla las fotos se recortan a esa forma; cuando alguien toca una foto, se ve completa.
   - **Fotos**: las fotos de la sección. Se pueden reordenar arrastrando.
+  - **Videos**: clips cortos. Aparecen después de las fotos, con la misma forma, y se reproducen solos, sin sonido y en bucle. Al tocarlos se abren con sonido.
 
-Una sección **sin fotos no se muestra**, así que podés dejar secciones vacías preparadas sin que se vean.
+Una sección **sin fotos ni videos no se muestra**, así que podés dejar secciones vacías preparadas sin que se vean.
 
 ### Subir fotos
 
 1. En el campo de fotos, tocá el botón para agregar y elegí desde la galería o sacá una foto.
 2. No hace falta achicarlas antes: el panel las comprime solo al subirlas (quedan livianas para que la web cargue rápido).
 3. Las fotos subidas quedan guardadas en el panel, así que podés reutilizarlas en otra sección sin volver a subirlas.
+
+### Subir videos
+
+Los videos **no se comprimen solos** (las fotos sí), así que hay un límite: **30 MB por video**. Si el video pesa más, el panel no te deja subirlo.
+
+- Que sean **clips cortos** (menos de 1 minuto).
+- Si pesa más de 30 MB, achicalo antes con una app gratuita de comprimir video (buscá "comprimir video" en la App Store o Play Store) y exportalo en **MP4, 720p o 1080p**. Un clip de 30 segundos en 720p suele pesar entre 5 y 15 MB.
+- En iPhone: Ajustes → Cámara → Formatos → **"Más compatible"**. Así el video se ve en todos los navegadores (el formato "Alta eficiencia" no se ve en algunos Android y computadoras). Grabar en 1080p en vez de 4K también ayuda mucho.
+- Cuanto más liviano, más rápido carga la web para quien la visita.
 
 ### Publicar los cambios
 

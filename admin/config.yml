@@ -152,3 +152,13 @@ collections:
                     widget: image
                     multiple: true
                     required: false
+                  - name: videos
+                    label: Videos
+                    hint: Clips cortos (menos de 1 minuto), máximo 30 MB cada uno, preferentemente MP4. Se reproducen solos, sin sonido y en bucle, después de las fotos. Al tocarlos se ven con sonido.
+                    widget: file
+                    multiple: true
+                    required: false
+                    accept: video/mp4,video/webm,video/quicktime
+                    media_library:
+                      config:
+                        max_file_size: 31457280  # 30 MB (GitHub bloquea archivos de más de 100 MB)

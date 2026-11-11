@@ -387,8 +387,9 @@
 
     .project-block {
       max-width: 1100px;
-      margin: 0 auto 6rem;
+      margin: 0 auto 2rem;
       padding: 0 3rem;
+      scroll-margin-top: 6rem;
       opacity: 0;
       transform: translateY(28px);
       transition: opacity 0.7s ease, transform 0.7s ease;
@@ -400,10 +401,55 @@
       grid-template-columns: auto 1fr;
       gap: 0 2.5rem;
       align-items: start;
-      margin-bottom: 2.5rem;
       padding-bottom: 2rem;
       border-bottom: 1px solid rgba(242,196,192,0.6);
+      cursor: pointer;
+      list-style: none;
     }
+    .project-header::-webkit-details-marker { display: none; }
+    .project-header:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 6px; }
+    .project[open] .project-header { margin-bottom: 2.5rem; }
+    .project-header:hover .project-title { color: var(--burgundy-soft); }
+
+    /* Miniaturas de vista previa (solo con el proyecto cerrado) */
+    .project-preview {
+      display: flex;
+      gap: 6px;
+      margin-top: 1.2rem;
+    }
+    .project-preview img {
+      width: 64px;
+      height: 84px;
+      object-fit: cover;
+      background: var(--rose-light);
+      border-radius: 2px;
+    }
+    .project[open] .project-preview { display: none; }
+
+    .project-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--burgundy);
+      font-weight: 400;
+    }
+    .project-toggle .chev {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-right: 1px solid currentColor;
+      border-bottom: 1px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 0.3s ease;
+    }
+    .project[open] .project-toggle .chev { transform: translateY(2px) rotate(-135deg); }
+    .project-toggle .when-open { display: none; }
+    .project[open] .project-toggle .when-open { display: inline; }
+    .project[open] .project-toggle .when-closed { display: none; }
+    .project-sections { overflow: hidden; }
 
     .project-number {
       font-family: 'Pinyon Script', cursive;
@@ -495,13 +541,32 @@
     .photo.cuadrado { aspect-ratio: 1; }
     .photo.panoramico { aspect-ratio: 16/7; }
 
-    .photo img {
+    .photo img, .photo video {
       position: absolute;
       inset: 0; width: 100%; height: 100%;
       object-fit: cover;
       transition: transform 0.5s ease;
     }
-    .photo:hover img { transform: scale(1.04); }
+    .photo:hover img, .photo:hover video { transform: scale(1.04); }
+    .video-badge {
+      position: absolute;
+      right: 8px; bottom: 8px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(253,248,242,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .video-badge::before {
+      content: '';
+      margin-left: 2px;
+      border-left: 8px solid var(--burgundy);
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+    }
     .photo:focus-visible { outline: 2px solid var(--burgundy); outline-offset: 2px; }
 
     .script-em {
@@ -521,7 +586,7 @@
 
     .ornament-sep {
       text-align: center;
-      margin: 4rem 0;
+      margin: 2.5rem 0 3rem;
       color: var(--muted);
       font-size: 1rem;
       letter-spacing: 0.5em;
@@ -645,7 +710,7 @@
       opacity: 1;
       pointer-events: all;
     }
-    .lightbox img {
+    .lightbox img, .lightbox video {
       max-width: 90vw;
       max-height: 90vh;
       object-fit: contain;
@@ -653,7 +718,8 @@
       transform: scale(0.95);
       transition: transform 0.3s ease;
     }
-    .lightbox.open img { transform: scale(1); }
+    .lightbox.open img, .lightbox.open video { transform: scale(1); }
+    .lightbox [hidden] { display: none; }
     .lightbox-close {
       position: absolute;
       top: 1.2rem;
@@ -724,6 +790,8 @@
       .nav-links a { font-size: 0.6rem; letter-spacing: 0.14em; }
       .project-header { grid-template-columns: 1fr; }
       .project-number { display: none; }
+      .project-title { font-size: 2.3rem; }
+      .project-preview img { width: 54px; height: 72px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -813,6 +881,7 @@
     <button class="lightbox-close" aria-label="Cerrar">✕</button>
     <button class="lightbox-nav lightbox-prev" aria-label="Foto anterior">‹</button>
     <img id="lightboxImg" src="" alt="" />
+    <video id="lightboxVideo" controls loop playsinline hidden></video>
     <button class="lightbox-nav lightbox-next" aria-label="Foto siguiente">›</button>
   </div>
 
@@ -859,33 +928,55 @@
       document.getElementById('contactLinks').innerHTML = links.join('');
     }
 
+    const REDUCED_MOTION = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const slugify = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+      .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'proyecto';
+
     function renderProjects(data) {
       const visibles = (data.proyectos || []).filter(p => p.visible !== false);
+      const usados = new Set();
       const html = visibles.map((p, i) => {
-        const secciones = (p.secciones || []).filter(s => (s.fotos || []).length);
+        let id = slugify(p.titulo);
+        while (usados.has(id)) id += '-2';
+        usados.add(id);
+
+        const secciones = (p.secciones || []).filter(s => (s.fotos || []).length || (s.videos || []).length);
         const bloques = secciones.map(s => {
           const cols = Math.min(Math.max(parseInt(s.columnas, 10) || 3, 1), 4);
           const formato = FORMATOS.includes(s.formato) ? s.formato : 'vertical';
-          const fotos = s.fotos.map((f, n) => {
+          const fotos = (s.fotos || []).map((f, n) => {
             const alt = `${p.titulo} — ${s.titulo} (${n + 1})`;
             return `<button type="button" class="photo ${formato}" aria-label="Ampliar: ${esc(alt)}"><img src="${src(f)}" alt="${esc(alt)}" loading="lazy" decoding="async" /></button>`;
           }).join('');
+          const videos = (s.videos || []).map((v, n) => {
+            const label = `${p.titulo} — ${s.titulo} (video ${n + 1})`;
+            return `<button type="button" class="photo ${formato}" aria-label="Ver video: ${esc(label)}"><video data-src="${src(v)}" muted loop playsinline preload="none" aria-hidden="true"></video><span class="video-badge" aria-hidden="true"></span></button>`;
+          }).join('');
           return `<div class="project-section-block">
               <h4 class="project-section-title">${esc(s.titulo)}</h4>
-              <div class="photo-grid cols-${cols}">${fotos}</div>
+              <div class="photo-grid cols-${cols}">${fotos}${videos}</div>
             </div>`;
         }).join('');
+
+        // Miniaturas: las primeras 4 fotos del proyecto (se ven solo con el proyecto cerrado)
+        const preview = secciones.flatMap(s => s.fotos || []).slice(0, 4)
+          .map(f => `<img src="${src(f)}" alt="" loading="lazy" decoding="async" />`).join('');
+
         const sep = i < visibles.length - 1 ? '<div class="ornament-sep" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>' : '';
-        return `<article class="project-block${p.destacado ? ' featured' : ''}">
-            <div class="project-header">
-              <div class="project-number" aria-hidden="true">✦</div>
-              <div class="project-meta">
-                <p class="project-tag">${esc(p.etiqueta)}</p>
-                <h3 class="project-title">${esc(p.titulo)}</h3>
-                <p class="project-desc">${esc(p.descripcion)}</p>
-              </div>
-            </div>
-            <div class="project-sections">${bloques}</div>
+        return `<article class="project-block${p.destacado ? ' featured' : ''}" id="${esc(id)}">
+            <details class="project">
+              <summary class="project-header">
+                <div class="project-number" aria-hidden="true">✦</div>
+                <div class="project-meta">
+                  <p class="project-tag">${esc(p.etiqueta)}</p>
+                  <h3 class="project-title">${esc(p.titulo)}</h3>
+                  <p class="project-desc">${esc(p.descripcion)}</p>
+                  ${preview ? `<div class="project-preview" aria-hidden="true">${preview}</div>` : ''}
+                  <span class="project-toggle"><span class="when-closed">Ver proyecto</span><span class="when-open">Cerrar</span><span class="chev" aria-hidden="true"></span></span>
+                </div>
+              </summary>
+              <div class="project-sections">${bloques}</div>
+            </details>
           </article>${sep}`;
       }).join('');
       document.getElementById('projectList').innerHTML = html;
@@ -896,7 +987,68 @@
         });
       }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }); // threshold 0: los proyectos muy largos nunca llegarían a un % alto
       document.querySelectorAll('.project-block').forEach(el => observer.observe(el));
+
+      document.querySelectorAll('.project').forEach(setupToggle);
+      document.querySelectorAll('.photo video').forEach(v => videoObserver.observe(v));
+      openFromHash();
     }
+
+    // ---------- Proyectos desplegables ----------
+    function setupToggle(details) {
+      const summary = details.querySelector('summary');
+      summary.addEventListener('click', e => {
+        e.preventDefault();
+        const abrir = !details.open;
+        setOpen(details, abrir, true);
+        // El link del navegador apunta al proyecto abierto (para compartirlo)
+        history.replaceState(null, '', abrir ? '#' + details.parentElement.id : location.pathname + location.search);
+      });
+    }
+
+    function setOpen(details, abrir, animar) {
+      const body = details.querySelector('.project-sections');
+      body.getAnimations().forEach(a => a.cancel());
+      if (abrir) {
+        details.open = true;
+        if (animar && !REDUCED_MOTION) body.animate(
+          [{ height: '0px', opacity: 0 }, { height: body.scrollHeight + 'px', opacity: 1 }],
+          { duration: 450, easing: 'ease' });
+      } else {
+        // Si el encabezado quedó arriba de la pantalla, volver a él al cerrar
+        const header = details.parentElement;
+        if (header.getBoundingClientRect().top < 0) header.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth' });
+        if (!animar || REDUCED_MOTION) { details.open = false; return; }
+        body.animate(
+          [{ height: body.scrollHeight + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+          { duration: 350, easing: 'ease' }).onfinish = () => { details.open = false; };
+      }
+    }
+
+    function openFromHash() {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const block = id && document.getElementById(id);
+      const details = block && block.querySelector('.project');
+      if (!details) return;
+      setOpen(details, true, false);
+      block.classList.add('visible');
+      block.scrollIntoView();
+    }
+    window.addEventListener('hashchange', openFromHash);
+
+    // ---------- Videos: se reproducen solos, sin sonido, solo mientras se ven ----------
+    const videoObserver = new IntersectionObserver(entries => {
+      entries.forEach(({ target: v, isIntersecting }) => {
+        if (isIntersecting) {
+          if (!v.src) {
+            v.src = v.dataset.src + (REDUCED_MOTION ? '#t=0.1' : '');
+            v.preload = REDUCED_MOTION ? 'metadata' : 'auto';
+          }
+          if (!REDUCED_MOTION) v.play().catch(() => {});
+        } else if (!v.paused) {
+          v.pause();
+        }
+      });
+    }, { rootMargin: '200px 0px' });
 
     // ---------- Carrusel ----------
     let carouselTimer = null;
@@ -930,26 +1082,48 @@
     // ---------- Lightbox ----------
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxVideo = document.getElementById('lightboxVideo');
     const prevBtn = lightbox.querySelector('.lightbox-prev');
     const nextBtn = lightbox.querySelector('.lightbox-next');
     let group = [], idx = 0, lastFocus = null;
 
+    function stopLightboxVideo() {
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute('src');
+      lightboxVideo.load();
+    }
     function showPhoto(i) {
       idx = (i + group.length) % group.length;
-      lightboxImg.src = group[idx].src;
-      lightboxImg.alt = group[idx].alt;
+      const item = group[idx];
+      const video = item.querySelector('video');
+      if (video) {
+        lightboxImg.hidden = true;
+        lightboxImg.removeAttribute('src');
+        lightboxVideo.hidden = false;
+        lightboxVideo.src = video.dataset.src;
+        lightboxVideo.setAttribute('aria-label', item.getAttribute('aria-label').replace(/^Ver video: /, ''));
+        lightboxVideo.play().catch(() => {});
+      } else {
+        stopLightboxVideo();
+        lightboxVideo.hidden = true;
+        const img = item.querySelector('img');
+        lightboxImg.hidden = false;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      }
       prevBtn.hidden = nextBtn.hidden = group.length < 2;
     }
-    function openLightbox(img) {
-      group = [...img.closest('.photo-grid').querySelectorAll('img')];
+    function openLightbox(btn) {
+      group = [...btn.closest('.photo-grid').querySelectorAll('.photo')];
       lastFocus = document.activeElement;
-      showPhoto(group.indexOf(img));
+      showPhoto(group.indexOf(btn));
       lightbox.classList.add('open');
       lightbox.setAttribute('aria-hidden', 'false');
       lightbox.querySelector('.lightbox-close').focus();
     }
     function closeLightbox() {
       if (!lightbox.classList.contains('open')) return;
+      stopLightboxVideo();
       lightbox.classList.remove('open');
       lightbox.setAttribute('aria-hidden', 'true');
       lastFocus?.focus();
@@ -957,7 +1131,7 @@
 
     document.getElementById('projectList').addEventListener('click', e => {
       const btn = e.target.closest('.photo');
-      if (btn) openLightbox(btn.querySelector('img'));
+      if (btn) openLightbox(btn);
     });
     prevBtn.addEventListener('click', () => showPhoto(idx - 1));
     nextBtn.addEventListener('click', () => showPhoto(idx + 1));
